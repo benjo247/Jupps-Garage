@@ -4,14 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jupp's Garage · Kfz-Meisterbetrieb in Baunatal</title>
-  <meta name="description" content="Kfz-Meisterbetrieb in Baunatal. HU/AU, Inspektion, Reparatur. Was wir nicht reparieren können, ist auch nicht defekt." />
-  <link rel="icon" type="image/png" href="/favicon.png" />
-
+  <meta name="description" content="Kfz-Meisterbetrieb in Baunatal. HU/AU, Inspektion, Reparatur." />
+  <link rel="icon" type="image/png" href="/jupps-logo.png" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
   <style>
     body { font-family: 'Manrope', system-ui, sans-serif; }
     .font-archivo { font-family: 'Archivo', sans-serif; }
@@ -20,22 +16,23 @@
                         linear-gradient(90deg, rgba(15,23,42,0.04) 1px, transparent 1px);
       background-size: 40px 40px;
     }
-
     @keyframes pulse-ring {
       0%   { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.5); }
       70%  { box-shadow: 0 0 0 14px rgba(220, 38, 38, 0); }
       100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
     }
     .pulse-cta { animation: pulse-ring 2.5s infinite; }
-
-    .sticky-cta {
-      position: fixed;
-      bottom: 16px;
-      left: 16px;
-      right: 16px;
-      z-index: 50;
-      display: none;
+    @keyframes float-logo {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50%      { transform: translateY(-12px) rotate(2deg); }
     }
+    .float-logo { animation: float-logo 6s ease-in-out infinite; }
+    @keyframes glow-pulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50%      { opacity: 0.8; transform: scale(1.05); }
+    }
+    .glow-pulse { animation: glow-pulse 4s ease-in-out infinite; }
+    .sticky-cta { position: fixed; bottom: 16px; left: 16px; right: 16px; z-index: 50; display: none; }
     @media (max-width: 768px) {
       .sticky-cta { display: block; }
       body { padding-bottom: 80px; }
@@ -44,7 +41,6 @@
 </head>
 <body class="bg-stone-50 text-slate-900">
 
-<!-- Top bar -->
 <div class="bg-slate-900 text-white text-xs">
   <div class="max-w-6xl mx-auto px-5 py-2 flex items-center justify-between gap-3 flex-wrap">
     <div class="flex items-center gap-4">
@@ -57,24 +53,15 @@
         Moltkestraße 1, 34225 Baunatal
       </span>
     </div>
-    <a href="tel:0560187652" class="font-bold flex items-center gap-1.5 hover:text-red-400 transition-colors">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      05601 87652
-    </a>
+    <a href="tel:0560187652" class="font-bold hover:text-red-400">05601 87652</a>
   </div>
 </div>
 
-<!-- Header -->
 <header class="bg-white border-b border-slate-200 sticky top-0 z-40">
   <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between gap-4">
-    <a href="#" class="flex items-center gap-2.5">
-      <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center shadow-lg shadow-red-600/30">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
-          <circle cx="12" cy="12" r="3"/>
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-        </svg>
-      </div>
-      <div>
+    <a href="#" class="flex items-center gap-3">
+      <img src="/jupps-logo.png" alt="Jupp's Garage" class="h-12 w-auto" />
+      <div class="hidden sm:block">
         <p class="font-archivo font-black text-xl text-slate-900 leading-none">Jupp's Garage</p>
         <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold mt-1">Kfz-Meisterbetrieb · Baunatal</p>
       </div>
@@ -83,17 +70,12 @@
       <a href="#leistungen" class="text-slate-700 hover:text-red-600 transition">Leistungen</a>
       <a href="#ueber-uns" class="text-slate-700 hover:text-red-600 transition">Über uns</a>
       <a href="#kontakt" class="text-slate-700 hover:text-red-600 transition">Kontakt</a>
-      <button data-werkstattloop="jupps-garage" class="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-full text-sm transition shadow-lg shadow-red-600/30 cursor-pointer">
-        Termin buchen
-      </button>
+      <button data-werkstattloop="jupps-garage" class="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-full text-sm shadow-lg shadow-red-600/30 cursor-pointer">Termin buchen</button>
     </nav>
-    <button data-werkstattloop="jupps-garage" class="md:hidden bg-red-600 text-white px-3 py-2 rounded-full text-xs font-bold cursor-pointer">
-      Termin
-    </button>
+    <button data-werkstattloop="jupps-garage" class="md:hidden bg-red-600 text-white px-3 py-2 rounded-full text-xs font-bold cursor-pointer">Termin</button>
   </div>
 </header>
 
-<!-- Hero -->
 <section class="relative bg-stone-50 grid-bg overflow-hidden">
   <div class="max-w-6xl mx-auto px-5 py-16 md:py-24 relative">
     <div class="grid md:grid-cols-2 gap-10 items-center">
@@ -102,18 +84,15 @@
           <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
           Heute geöffnet · Termine verfügbar
         </div>
-
         <h1 class="text-4xl md:text-6xl font-archivo font-black text-slate-900 leading-[1.05] mb-5">
           Was wir nicht reparieren können,<br />
           <span class="text-red-600">ist auch nicht defekt.</span>
         </h1>
-
         <p class="text-lg text-slate-600 font-medium mb-8 max-w-lg">
           Kfz-Meisterbetrieb in Baunatal. HU/AU, Inspektion, Reparatur — alles aus einer Hand. Seit über 25 Jahren.
         </p>
-
         <div class="flex flex-wrap gap-3">
-          <button data-werkstattloop="jupps-garage" class="bg-red-600 hover:bg-red-700 text-white px-7 py-4 rounded-full font-bold text-base flex items-center gap-2 shadow-xl shadow-red-600/30 transition pulse-cta cursor-pointer">
+          <button data-werkstattloop="jupps-garage" class="bg-red-600 hover:bg-red-700 text-white px-7 py-4 rounded-full font-bold text-base flex items-center gap-2 shadow-xl shadow-red-600/30 pulse-cta cursor-pointer">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Online Termin buchen
           </button>
@@ -122,39 +101,26 @@
             05601 87652
           </a>
         </div>
-
         <div class="mt-10 flex items-center gap-6 text-xs text-slate-500 font-bold">
-          <div class="flex items-center gap-1.5">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Meisterbetrieb
-          </div>
-          <div class="flex items-center gap-1.5">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Alle Marken
-          </div>
-          <div class="flex items-center gap-1.5">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Faire Preise
-          </div>
+          <div class="flex items-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Meisterbetrieb</div>
+          <div class="flex items-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Alle Marken</div>
+          <div class="flex items-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Faire Preise</div>
         </div>
       </div>
 
-      <div class="relative hidden md:block">
-        <div class="aspect-square bg-gradient-to-br from-red-600 via-red-700 to-slate-900 rounded-3xl shadow-2xl flex items-center justify-center relative overflow-hidden">
-          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round" class="opacity-30">
-            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-          </svg>
-          <div class="absolute bottom-6 left-6 right-6 text-white">
-            <p class="text-[10px] uppercase tracking-widest font-bold opacity-80 mb-1">Werkstatt seit 1998</p>
-            <p class="font-archivo font-black text-2xl">Direkt vom Meister.</p>
-          </div>
+      <div class="relative hidden md:flex items-center justify-center min-h-[480px]">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-96 h-96 bg-gradient-to-br from-red-600/20 via-red-500/10 to-blue-600/20 rounded-full blur-3xl glow-pulse"></div>
         </div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-64 h-64 bg-red-600/15 rounded-full blur-2xl"></div>
+        </div>
+        <img src="/jupps-logo.png" alt="Jupp's Garage" class="relative z-10 w-full max-w-md h-auto float-logo drop-shadow-2xl" />
       </div>
     </div>
   </div>
 </section>
 
-<!-- Leistungen -->
 <section id="leistungen" class="bg-white py-20">
   <div class="max-w-6xl mx-auto px-5">
     <div class="text-center mb-12">
@@ -162,7 +128,6 @@
       <h2 class="text-3xl md:text-4xl font-archivo font-black text-slate-900 mb-3">Vom Ölwechsel bis zur Großreparatur.</h2>
       <p class="text-slate-600 font-medium max-w-xl mx-auto">Wir kümmern uns um dein Fahrzeug. Persönlich, fachkundig, zum fairen Preis.</p>
     </div>
-
     <div class="grid md:grid-cols-3 gap-5">
       <div class="border-2 border-slate-200 rounded-2xl p-6 hover:border-red-600 hover:shadow-xl transition">
         <div class="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mb-4">
@@ -171,7 +136,6 @@
         <h3 class="font-archivo font-black text-lg mb-2">HU + AU</h3>
         <p class="text-sm text-slate-600 font-medium leading-relaxed">Hauptuntersuchung mit Abgastest. Direkt im Haus durch Prüfingenieur.</p>
       </div>
-
       <div class="border-2 border-slate-200 rounded-2xl p-6 hover:border-red-600 hover:shadow-xl transition">
         <div class="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mb-4">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
@@ -179,7 +143,6 @@
         <h3 class="font-archivo font-black text-lg mb-2">Inspektion</h3>
         <p class="text-sm text-slate-600 font-medium leading-relaxed">Nach Herstellervorgaben. Mit Garantie-Erhalt für Neuwagen.</p>
       </div>
-
       <div class="border-2 border-slate-200 rounded-2xl p-6 hover:border-red-600 hover:shadow-xl transition">
         <div class="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mb-4">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round"><path d="M2 12c0-3.5 2.5-6 6-6s6 2.5 6 6-2.5 6-6 6-6-2.5-6-6z"/><path d="M14 12h6"/><path d="M22 12l-2-2-2 2 2 2 2-2z"/></svg>
@@ -187,7 +150,6 @@
         <h3 class="font-archivo font-black text-lg mb-2">Klimaservice</h3>
         <p class="text-sm text-slate-600 font-medium leading-relaxed">Wartung, Befüllung, Desinfektion. Damit's auch im Sommer kühl bleibt.</p>
       </div>
-
       <div class="border-2 border-slate-200 rounded-2xl p-6 hover:border-red-600 hover:shadow-xl transition">
         <div class="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mb-4">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
@@ -195,7 +157,6 @@
         <h3 class="font-archivo font-black text-lg mb-2">Reifenservice</h3>
         <p class="text-sm text-slate-600 font-medium leading-relaxed">Wechsel, Auswuchten, Einlagerung. Sommer- und Winterreifen.</p>
       </div>
-
       <div class="border-2 border-slate-200 rounded-2xl p-6 hover:border-red-600 hover:shadow-xl transition">
         <div class="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mb-4">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -203,7 +164,6 @@
         <h3 class="font-archivo font-black text-lg mb-2">Fehlerdiagnose</h3>
         <p class="text-sm text-slate-600 font-medium leading-relaxed">Computergestützt. Wir finden, was die Werkstatt-Lampe leuchten lässt.</p>
       </div>
-
       <div class="border-2 border-slate-200 rounded-2xl p-6 hover:border-red-600 hover:shadow-xl transition">
         <div class="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mb-4">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
@@ -212,9 +172,8 @@
         <p class="text-sm text-slate-600 font-medium leading-relaxed">Bremsen, Auspuff, Motor, Getriebe. Was kaputt ist, wird ganz.</p>
       </div>
     </div>
-
     <div class="text-center mt-12">
-      <button data-werkstattloop="jupps-garage" class="bg-slate-900 hover:bg-red-600 text-white px-7 py-3.5 rounded-full font-bold text-sm transition cursor-pointer inline-flex items-center gap-2">
+      <button data-werkstattloop="jupps-garage" class="bg-slate-900 hover:bg-red-600 text-white px-7 py-3.5 rounded-full font-bold text-sm cursor-pointer inline-flex items-center gap-2 transition">
         Jetzt online Termin buchen
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </button>
@@ -222,7 +181,6 @@
   </div>
 </section>
 
-<!-- Über uns -->
 <section id="ueber-uns" class="bg-stone-50 py-20">
   <div class="max-w-6xl mx-auto px-5">
     <div class="grid md:grid-cols-2 gap-10 items-center">
@@ -235,112 +193,67 @@
         <p class="text-slate-700 font-medium mb-6 leading-relaxed">
           Wir machen, was wir können — und sagen dir ehrlich, wenn etwas nicht geht. Faire Preise, klare Worte, gute Arbeit.
         </p>
-
         <div class="grid grid-cols-3 gap-4">
-          <div>
-            <p class="text-3xl md:text-4xl font-archivo font-black text-red-600">25+</p>
-            <p class="text-xs uppercase tracking-wider text-slate-500 font-bold mt-1">Jahre Erfahrung</p>
-          </div>
-          <div>
-            <p class="text-3xl md:text-4xl font-archivo font-black text-red-600">3.000+</p>
-            <p class="text-xs uppercase tracking-wider text-slate-500 font-bold mt-1">Stammkunden</p>
-          </div>
-          <div>
-            <p class="text-3xl md:text-4xl font-archivo font-black text-red-600">4.9★</p>
-            <p class="text-xs uppercase tracking-wider text-slate-500 font-bold mt-1">Google-Bewertung</p>
-          </div>
+          <div><p class="text-3xl md:text-4xl font-archivo font-black text-red-600">25+</p><p class="text-xs uppercase tracking-wider text-slate-500 font-bold mt-1">Jahre Erfahrung</p></div>
+          <div><p class="text-3xl md:text-4xl font-archivo font-black text-red-600">3.000+</p><p class="text-xs uppercase tracking-wider text-slate-500 font-bold mt-1">Stammkunden</p></div>
+          <div><p class="text-3xl md:text-4xl font-archivo font-black text-red-600">4.9★</p><p class="text-xs uppercase tracking-wider text-slate-500 font-bold mt-1">Google-Bewertung</p></div>
         </div>
       </div>
-
       <div class="bg-white rounded-3xl p-8 border-2 border-slate-200 shadow-sm">
         <p class="text-xs uppercase tracking-widest text-slate-500 font-black mb-4">Was Kunden sagen</p>
-        <p class="text-lg font-archivo font-bold text-slate-800 leading-relaxed mb-5">
-          „Endlich eine Werkstatt, die nicht versucht, mir Sachen aufzuschwatzen. Jupp sagt einfach was Sache ist und macht's. Vertraue ich blind."
-        </p>
+        <p class="text-lg font-archivo font-bold text-slate-800 leading-relaxed mb-5">„Endlich eine Werkstatt, die nicht versucht, mir Sachen aufzuschwatzen. Jupp sagt einfach was Sache ist und macht's. Vertraue ich blind."</p>
         <div class="flex items-center gap-3 pt-4 border-t border-slate-200">
-          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center text-white font-archivo font-black text-sm">
-            MS
-          </div>
-          <div>
-            <p class="font-bold text-sm text-slate-900">Markus S.</p>
-            <p class="text-xs text-slate-500 font-medium">Stammkunde seit 2019</p>
-          </div>
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center text-white font-archivo font-black text-sm">MS</div>
+          <div><p class="font-bold text-sm text-slate-900">Markus S.</p><p class="text-xs text-slate-500 font-medium">Stammkunde seit 2019</p></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Kontakt -->
 <section id="kontakt" class="bg-slate-900 text-white py-20">
   <div class="max-w-6xl mx-auto px-5">
     <div class="grid md:grid-cols-2 gap-12">
       <div>
         <p class="text-xs uppercase tracking-widest text-red-400 font-black mb-2">Kontakt</p>
         <h2 class="text-3xl md:text-4xl font-archivo font-black mb-6">Komm vorbei oder<br/>buch dir einen Termin.</h2>
-
         <div class="space-y-4">
           <div class="flex items-start gap-3">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round" class="mt-0.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div>
-              <p class="text-xs uppercase tracking-wider text-slate-400 font-bold">Adresse</p>
-              <p class="font-bold">Moltkestraße 1, 34225 Baunatal</p>
-            </div>
+            <div><p class="text-xs uppercase tracking-wider text-slate-400 font-bold">Adresse</p><p class="font-bold">Moltkestraße 1, 34225 Baunatal</p></div>
           </div>
-
           <div class="flex items-start gap-3">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round" class="mt-0.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <div>
-              <p class="text-xs uppercase tracking-wider text-slate-400 font-bold">Telefon</p>
-              <a href="tel:0560187652" class="font-bold hover:text-red-400">05601 87652</a>
-            </div>
+            <div><p class="text-xs uppercase tracking-wider text-slate-400 font-bold">Telefon</p><a href="tel:0560187652" class="font-bold hover:text-red-400">05601 87652</a></div>
           </div>
-
           <div class="flex items-start gap-3">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round" class="mt-0.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <div>
-              <p class="text-xs uppercase tracking-wider text-slate-400 font-bold">E-Mail</p>
-              <a href="mailto:Info@Juppsgarage-baunatal.de" class="font-bold hover:text-red-400">Info@Juppsgarage-baunatal.de</a>
-            </div>
+            <div><p class="text-xs uppercase tracking-wider text-slate-400 font-bold">E-Mail</p><a href="mailto:Info@Juppsgarage-baunatal.de" class="font-bold hover:text-red-400">Info@Juppsgarage-baunatal.de</a></div>
           </div>
-
           <div class="flex items-start gap-3">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round" class="mt-0.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <div>
-              <p class="text-xs uppercase tracking-wider text-slate-400 font-bold">Öffnungszeiten</p>
-              <p class="font-bold">Mo–Do 08:00–17:00</p>
-              <p class="font-bold">Fr 08:00–14:00</p>
-            </div>
+            <div><p class="text-xs uppercase tracking-wider text-slate-400 font-bold">Öffnungszeiten</p><p class="font-bold">Mo–Do 08:00–17:00</p><p class="font-bold">Fr 08:00–14:00</p></div>
           </div>
         </div>
       </div>
-
       <div class="bg-white text-slate-900 rounded-3xl p-8">
         <p class="text-xs uppercase tracking-widest text-red-600 font-black mb-2">Schnellster Weg</p>
         <h3 class="text-2xl font-archivo font-black mb-3">Online Termin buchen.</h3>
-        <p class="text-slate-600 font-medium text-sm mb-6 leading-relaxed">
-          24/7 verfügbar, kein Anruf nötig. Wähle Service, Wunschtermin und schick uns deine Daten —
-          wir bestätigen meist innerhalb weniger Stunden.
-        </p>
-        <button data-werkstattloop="jupps-garage" class="w-full bg-red-600 hover:bg-red-700 text-white px-7 py-4 rounded-full font-bold text-base flex items-center justify-center gap-2 shadow-xl shadow-red-600/30 transition cursor-pointer">
+        <p class="text-slate-600 font-medium text-sm mb-6 leading-relaxed">24/7 verfügbar, kein Anruf nötig. Wähle Service, Wunschtermin und schick uns deine Daten — wir bestätigen meist innerhalb weniger Stunden.</p>
+        <button data-werkstattloop="jupps-garage" class="w-full bg-red-600 hover:bg-red-700 text-white px-7 py-4 rounded-full font-bold text-base flex items-center justify-center gap-2 shadow-xl shadow-red-600/30 cursor-pointer transition">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           Jetzt Termin buchen
         </button>
-        <p class="text-[11px] text-slate-500 mt-3 text-center font-medium">
-          Du wirst nicht weitergeleitet — alles bleibt auf dieser Seite.
-        </p>
+        <p class="text-[11px] text-slate-500 mt-3 text-center font-medium">Du wirst nicht weitergeleitet — alles bleibt auf dieser Seite.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
 <footer class="bg-slate-950 text-slate-400 text-sm">
   <div class="max-w-6xl mx-auto px-5 py-8 flex items-center justify-between flex-wrap gap-4">
     <div class="flex items-center gap-2.5">
-      <div class="w-8 h-8 rounded-md bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/></svg>
-      </div>
+      <img src="/jupps-logo.png" alt="Jupp's Garage" class="h-8 w-auto" />
       <p class="font-bold text-white">Jupp's Garage</p>
       <span class="text-slate-600">·</span>
       <span class="font-medium">Kfz-Meisterbetrieb</span>
@@ -353,7 +266,6 @@
   </div>
 </footer>
 
-<!-- Sticky CTA für Mobile -->
 <div class="sticky-cta">
   <button data-werkstattloop="jupps-garage" class="w-full bg-red-600 hover:bg-red-700 text-white px-6 py-4 rounded-full font-bold text-base flex items-center justify-center gap-2 shadow-2xl shadow-red-600/40 cursor-pointer">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -361,7 +273,6 @@
   </button>
 </div>
 
-<!-- WerkstattLoop Embed -->
 <script src="https://werkstatt-loop.vercel.app/embed.js" async></script>
 
 </body>
