@@ -1,41 +1,34 @@
-# Jupp's Garage — Preview
+# Jupp's Garage Webseite
 
-Statische Vorschauseite für Jupp's Garage Baunatal.
-Powered by **WerkstattLoop** — Marketing-Add-on für Kfz-Werkstätten.
+Statische Webseite mit eingebundenem WerkstattLoop-Buchungstool.
 
-## Live-Preview
+## Was ist neu in v3
 
-Nach Deploy auf Vercel erreichbar unter `https://<projektname>.vercel.app`.
+- Inline-Buchungstool **komplett entfernt** (war redundant)
+- Stattdessen: **Modal-Embedding** über `werkstattloop.vercel.app/embed.js`
+- Buttons mit `data-werkstattloop="jupps-garage"` öffnen automatisch das Modal
+- Fahrzeugschein-Upload + DSGVO-Konsens läuft jetzt zentral auf werkstattloop
+- Sticky CTA-Button auf Mobile für maximale Conversion
 
-## Lokal öffnen
+## Wie das Embedding funktioniert
 
-Einfach `index.html` doppelklicken — öffnet sich im Browser.
-Internetverbindung wird kurz gebraucht (Tailwind/Fonts vom CDN).
+```html
+<!-- Jeder Button mit data-werkstattloop öffnet das Modal -->
+<button data-werkstattloop="jupps-garage">Termin buchen</button>
 
-## Auf Vercel deployen
-
-1. Repo auf GitHub anlegen, alle Dateien hochladen
-2. Auf [vercel.com/new](https://vercel.com/new) Repo importieren
-3. **Framework Preset:** Other
-4. Alle Build-Settings leer lassen
-5. Deploy
-
-Dauert ~30 Sekunden.
-
-## Anpassen
-
-- **Inhalte:** direkt in `index.html` editieren
-- **Logo:** `jupps-logo.png` ersetzen (gleicher Dateiname)
-- **Farben:** Hex-Codes `#dc2626` (Rot) und `#1e40af` (Blau) per Suchen+Ersetzen ändern
-
-## Struktur
-
-```
-.
-├── index.html      # Komplette Seite mit Online-Buchungstool
-├── jupps-logo.png  # Logo
-├── .gitignore
-└── README.md
+<!-- Das Script vor </body> einbinden -->
+<script src="https://werkstatt-loop.vercel.app/embed.js" async></script>
 ```
 
-Keine Build-Tools, keine Frameworks, keine Abhängigkeiten. Reines HTML/CSS/JS.
+Das Script:
+- Findet alle Buttons mit `data-werkstattloop="..."`
+- Bei Klick: öffnet ein Modal-Overlay
+- Im Modal: Iframe lädt `/r/jupps-garage?embed=1`
+- Buchung wird zentral verarbeitet, landet in WerkstattLoop-Dashboard
+- Modal schließt nach erfolgreicher Buchung automatisch
+
+## Deploy
+
+Push zum verbundenen Vercel-Projekt → Auto-Deploy.
+
+Keine Build-Steps, keine Dependencies — pure HTML mit CDN-Tailwind.
